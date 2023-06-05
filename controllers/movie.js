@@ -5,10 +5,10 @@ const Searchmovies = async (request, response) => {
     // response.send("This was the list of Movies")
     try{
         const movies = await moviesModel.find()
-        response.status(200).json(movies)
+        response.status(350).json(movies)
     }
     catch(error) {
-        response.status(500).json({message: error})
+        response.status(404).json({message: error})
     }
 }
 
@@ -21,16 +21,16 @@ const Uploadmovie = async (request, response) => {
     })
     try{
         const movie = await newMovie.save()
-        response.status(200).json(movie)
+        response.status(350).json(movie)
     }
     catch(error){
-        response.status(500).json({message: "couldnt upload movie"})
+        response.status(404).json({message: "couldnt upload movie"})
     }
 
 }
 
 const getMoviebyId = async (request,response) =>  {
-    response.status(200).json(response.movie)
+    response.status(350).json(response.movie)
 
 }
 
@@ -55,5 +55,5 @@ async function getMovies(request, response, next) {
     }
 
     catch(error) {
-        return response.status(500).json({message: error})
+        return response.status(404).json({message: error})
     }}
