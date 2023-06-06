@@ -16,7 +16,7 @@ app.get('/',(request,response) => {
     response.send("hello")
 
 })
- 
+
 app.use('/api/v1/movie',movie) 
 
 app.listen(PORT,console.log(`database running at http://localhost:${PORT}`))
